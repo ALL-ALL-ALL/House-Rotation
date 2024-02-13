@@ -6,19 +6,46 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
+    @State private var speed = 10.0
+
     var body: some View {
         VStack {
+            
             Image(systemName: "house")
                 .font(.largeTitle)
                 .foregroundStyle(.green)
-            Text("degré:127")
-            Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
-        }
+            
+            
+            Slider(value: $speed, in : 0...30)
+            
+            
+            HStack{
+                Text("Degré:")
+                    .foregroundStyle(.red)
+                    .font(.title2)
+                    .bold()
+
+                
+                
+                Text("\(Int(speed))°") // ici la valeur du slider sous forme de texte
+                    .foregroundStyle(.red)
+                    .font(.title2)
+                    .bold()
+
+                
+                
+                
+
+                
+                
+            } // FIN DE HASTACK
+
+            
+        } // FIN DE VSTACK
         .padding()
-    }
-}
+    } // FIN DE BODY
+} // FIN DE STRUCT
 
 #Preview {
     ContentView()
